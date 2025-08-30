@@ -17,7 +17,9 @@ public class Graph {
         addAirport(from);
         addAirport(to);
         adj.get(from).add(new Edge(to, distance, cost));
+        adj.get(to).add(new Edge(from, distance, cost)); // To fix the cost and shortest route issue
     }
+
 
     public List<Edge> neighbors(Airport a) {
         return adj.getOrDefault(a, Collections.emptyList());
@@ -75,3 +77,4 @@ public class Graph {
         }
     }
 }
+

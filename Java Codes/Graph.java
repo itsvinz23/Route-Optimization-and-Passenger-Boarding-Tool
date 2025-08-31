@@ -13,13 +13,11 @@ public class Graph {
         adj.putIfAbsent(a, new ArrayList<>());
     }
 
-    public void addRoute(Airport from, Airport to, double distance, double cost) {
+    public void addRoute(Airport from, Airport to, double distance, double cost, double duration, int capacity) {
         addAirport(from);
         addAirport(to);
-        adj.get(from).add(new Edge(to, distance, cost));
-        adj.get(to).add(new Edge(from, distance, cost)); // To fix the cost and shortest route issue
+        adj.get(from).add(new Edge(to, distance, cost, duration, capacity));
     }
-
 
     public List<Edge> neighbors(Airport a) {
         return adj.getOrDefault(a, Collections.emptyList());
@@ -35,11 +33,17 @@ public class Graph {
         }
         dist.put(source, 0.0);
 
-        PriorityQueue<Airport> pq = new PriorityQueue<>(Comparator.comparingDouble(dist::get));
-        pq.add(source);
+        // Use a priority queue with duplicates
+        PriorityQueue<AirportDistance> pq = new PriorityQueue<>(Comparator.comparingDouble(ad -> ad.distance));
+        pq.add(new AirportDistance(source, 0.0));
 
         while (!pq.isEmpty()) {
-            Airport u = pq.poll();
+            AirportDistance current = pq.poll();
+            Airport u = current.airport;
+
+            // Skip outdated entries
+            if (current.distance > dist.get(u)) continue;
+
             if (u.equals(target)) break;
 
             for (Edge e : neighbors(u)) {
@@ -48,12 +52,12 @@ public class Graph {
                 if (alt < dist.get(v)) {
                     dist.put(v, alt);
                     prev.put(v, u);
-                    pq.remove(v);
-                    pq.add(v);
+                    pq.add(new AirportDistance(v, alt)); // just add new entry, no removal
                 }
             }
         }
 
+        // Build path
         List<Airport> path = new ArrayList<>();
         Airport cur = target;
         if (!prev.containsKey(cur) && !cur.equals(source)) {
@@ -67,6 +71,16 @@ public class Graph {
         return new DijkstraResult(path, dist.get(target));
     }
 
+    private static class AirportDistance {
+        Airport airport;
+        double distance;
+
+        AirportDistance(Airport airport, double distance) {
+            this.airport = airport;
+            this.distance = distance;
+        }
+    }
+
     public static class DijkstraResult {
         public final List<Airport> path;
         public final double total;
@@ -77,4 +91,3 @@ public class Graph {
         }
     }
 }
-

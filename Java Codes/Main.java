@@ -11,7 +11,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        
         Graph g = new Graph();
 
         Airport CMB = new Airport("CMB", "Colombo");
@@ -27,7 +26,7 @@ public class Main {
 
         List<Airport> airports = Arrays.asList(CMB, BLR, DEL, DXB, LHR, JFK, SIN, SYD, HND, CDG);
 
-        
+        // Add routes 
         g.addRoute(CMB, BLR, 700, 120, 1.5, 180);
         g.addRoute(CMB, DEL, 2400, 280, 3.0, 200);
         g.addRoute(CMB, DXB, 3300, 400, 4.5, 220);
@@ -46,7 +45,7 @@ public class Main {
         System.out.println("=== Airline Route Optimization Tool ===\n");
         displayRouteGraph(airports, g);
 
-       
+      
         System.out.println("Available Airports:");
         airports.forEach(a -> System.out.println(" - " + a.getCode() + " : " + a.getName()));
 
@@ -67,18 +66,18 @@ public class Main {
         DijkstraResult distRes = g.dijkstra(src, dst, e -> e.getDistance());
         DijkstraResult costRes = g.dijkstra(src, dst, e -> e.getCost());
 
-        // Check if a valid route exists
+        
         if (distRes.path.isEmpty() || distRes.total == Double.POSITIVE_INFINITY) {
             System.out.println("\n❌ No available flight from " + src.getCode() + " to " + dst.getCode());
             System.out.println("⚠️ Please check the route map and select a valid source/destination.");
-            return; 
+            return;
         }
 
         System.out.println("\n🛫 Route Results:");
         System.out.println(" - Shortest Path (by distance): " + distRes.path + " | Total km = " + distRes.total);
         System.out.println(" - Cheapest Path (by cost): " + costRes.path + " | Total cost = $" + costRes.total);
 
-        // --- Flight details for BoardingManager ---
+        
         System.out.println("\n=== Flight Details ===");
         System.out.print("Enter Flight Duration (hours): ");
         double duration = sc.nextDouble();
@@ -116,11 +115,11 @@ public class Main {
 
         
         System.out.println("\n=== Boarding Process ===");
-        int registeredCount = bm.getPassengers().size(); 
+        int registeredCount = bm.getPassengers().size(); // number of registered passengers
         System.out.printf("Flight: %s -> %s | Duration: %.1f hrs | Capacity: %d seats | Registered: %d%n",
                 src.getCode(), dst.getCode(), duration, capacity, registeredCount);
 
-        System.out.println("Passenger Boarding Order (Priority + Arrival Sequence):\n");
+        System.out.println("Passenger Boarding Order (Priority ):\n");
         System.out.printf("%-5s %-15s %-15s %-12s %-10s %-8s %-20s%n",
                 "No.", "Name", "ID", "Class", "Assist", "Priority", "Check-In Time");
         System.out.println("----------------------------------------------------------------------------------");
@@ -152,7 +151,7 @@ public class Main {
         System.out.println("⚠️ Note: Routes are unidirectional. Some reverse flights may not exist!");
     }
 
-   
+    
     private static int bmSize(BoardingManager bm) {
         try {
             java.lang.reflect.Field pqField = BoardingManager.class.getDeclaredField("pq");

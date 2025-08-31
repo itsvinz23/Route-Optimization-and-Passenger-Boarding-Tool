@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Passenger {
     private final String name;
     private final String id;
-    private final String travelClass; // BUSINESS / ECONOMY
+    private final String travelClass; 
     private final LocalDateTime checkIn;
     private final boolean assistance;
     private final long arrivalSeq;
@@ -21,7 +21,7 @@ public class Passenger {
 
     public int getPriorityValue() {
         int p = "BUSINESS".equalsIgnoreCase(travelClass) ? 2 : 1;
-        if (assistance) p += 1; // assistance gets extra priority
+        if (assistance) p += 1; 
         return p;
     }
 

@@ -33,17 +33,11 @@ public class Graph {
         }
         dist.put(source, 0.0);
 
-        // Use a priority queue with duplicates
-        PriorityQueue<AirportDistance> pq = new PriorityQueue<>(Comparator.comparingDouble(ad -> ad.distance));
-        pq.add(new AirportDistance(source, 0.0));
+        PriorityQueue<Airport> pq = new PriorityQueue<>(Comparator.comparingDouble(dist::get));
+        pq.add(source);
 
         while (!pq.isEmpty()) {
-            AirportDistance current = pq.poll();
-            Airport u = current.airport;
-
-            // Skip outdated entries
-            if (current.distance > dist.get(u)) continue;
-
+            Airport u = pq.poll();
             if (u.equals(target)) break;
 
             for (Edge e : neighbors(u)) {
@@ -52,12 +46,12 @@ public class Graph {
                 if (alt < dist.get(v)) {
                     dist.put(v, alt);
                     prev.put(v, u);
-                    pq.add(new AirportDistance(v, alt)); // just add new entry, no removal
+                    pq.remove(v);
+                    pq.add(v);
                 }
             }
         }
 
-        // Build path
         List<Airport> path = new ArrayList<>();
         Airport cur = target;
         if (!prev.containsKey(cur) && !cur.equals(source)) {
@@ -69,16 +63,6 @@ public class Graph {
         }
         Collections.reverse(path);
         return new DijkstraResult(path, dist.get(target));
-    }
-
-    private static class AirportDistance {
-        Airport airport;
-        double distance;
-
-        AirportDistance(Airport airport, double distance) {
-            this.airport = airport;
-            this.distance = distance;
-        }
     }
 
     public static class DijkstraResult {

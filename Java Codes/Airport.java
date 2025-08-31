@@ -1,3 +1,4 @@
+
 package model;
 
 import java.util.Objects;
@@ -30,3 +31,4 @@ public class Airport {
         return Objects.hash(code);
     }
 }
+

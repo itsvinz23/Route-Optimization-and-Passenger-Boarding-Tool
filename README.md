@@ -8,10 +8,15 @@ This tool improves airline operations by saving time, reducing costs, and ensuri
 📌 Features
 
 ✅ Find shortest and cheapest routes between airports using Dijkstra’s Algorithm
+
 ✅ Manage passenger boarding with Max Heap + FIFO Queue
+
 ✅ Prioritize Business Class passengers while keeping fairness for Economy
+
 ✅ Display routes with distance and cost comparisons
+
 ✅ Handle special assistance passengers smoothly
+
 ✅ Update boarding list dynamically during operations
 
 ⚙️ Functional Overview

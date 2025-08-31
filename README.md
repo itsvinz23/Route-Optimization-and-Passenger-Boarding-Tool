@@ -15,6 +15,7 @@ This tool improves airline operations by saving time, reducing costs, and ensuri
 ✅ Update boarding list dynamically during operations
 
 ⚙️ Functional Overview
+
 🔹 Input
 
 Airport details: names, codes, routes with distance, cost, duration, capacity

@@ -15,8 +15,6 @@
 
 <p align="center">
   <a href="#"><img alt="Platform" src="https://img.shields.io/badge/platform-Java%20%7C%20DataStructures-blue?style=for-the-badge"></a>
-  <a href="#"><img alt="License" MIT License "></a>
-  <a href="#"><img alt="Contributions" Scroll Down"></a>
 </p>
 
 ---
@@ -49,7 +47,7 @@ The **Route Optimization and Passenger Boarding Tool** enhances airline operatio
 ## 📸 Demo Preview
 
 <p align="center">
-  <img src="https://files.fm/f/2wq4w8fhcm" width="400"/>
+  <img src="https://imgur.com/a/T0yeEi6" width="400"/>
 </p>
 
 ---

@@ -15,8 +15,8 @@
 
 <p align="center">
   <a href="#"><img alt="Platform" src="https://img.shields.io/badge/platform-Java%20%7C%20DataStructures-blue?style=for-the-badge"></a>
-  <a href="#"><img alt="License" src="https://img.shields.io/github/license/itsvinz23/Route-Optimization-Boarding?style=for-the-badge"></a>
-  <a href="#"><img alt="Contributions" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge"></a>
+  <a href="#"><img alt="License" MIT License "></a>
+  <a href="#"><img alt="Contributions" Scroll Down"></a>
 </p>
 
 ---
@@ -49,10 +49,8 @@ The **Route Optimization and Passenger Boarding Tool** enhances airline operatio
 ## 📸 Demo Preview
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26BRrSvJUa0crqw4E/giphy.gif" width="400"/>
+  <img src="https://files.fm/f/2wq4w8fhcm" width="400"/>
 </p>
-
-*Replace with your tool’s demo screenshot or GIF.*
 
 ---
 

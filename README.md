@@ -1,82 +1,130 @@
-✈️ Route Optimization and Passenger Boarding Tool
+<!-- HEADER -->
+<p align="center">
+  <img src="https://d1lmq142maiv1z.cloudfront.net/NIBM_City_University_Logo_2_213b4dd2f6.svg" alt="NIBM City University Logo" width="200"/>
+</p>
 
-The Route Optimization and Passenger Boarding Tool helps airline staff efficiently plan routes and manage passenger boarding.
-It uses Dijkstra’s Algorithm to find the shortest or cheapest flight paths and applies a Max Heap + Queue mechanism to prioritize passenger boarding based on class and check-in time.
+<h1 align="center">✈️ Route Optimization and Passenger Boarding Tool 🛫</h1>
+<h3 align="center">The project is submitted in partial fulfilment of the requirement of the Higher National Diploma in Software Engineering National Institute of Business Management</h3>
+<p align="center">
+  A tool that optimizes airline routes using Dijkstra’s Algorithm and streamlines passenger boarding with Max Heap + Queue for fair, efficient, and cost-effective operations.
+</p>
 
-This tool improves airline operations by saving time, reducing costs, and ensuring fair yet efficient boarding.
+<p align="center">
+  <img src="https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif" width="300"/>
+</p>
 
-📌 Features
+<p align="center">
+  <a href="#"><img alt="Platform" src="https://img.shields.io/badge/platform-Java%20%7C%20DataStructures-blue?style=for-the-badge"></a>
+  <a href="#"><img alt="License" src="https://img.shields.io/github/license/itsvinz23/Route-Optimization-Boarding?style=for-the-badge"></a>
+  <a href="#"><img alt="Contributions" src="https://img.shields.io/badge/contributions-welcome-brightgreen?style=for-the-badge"></a>
+</p>
 
-✅ Find shortest and cheapest routes between airports using Dijkstra’s Algorithm
+---
 
-✅ Manage passenger boarding with Max Heap + FIFO Queue
+## 🚀 Overview
 
-✅ Prioritize Business Class passengers while keeping fairness for Economy
+The **Route Optimization and Passenger Boarding Tool** enhances airline operations by:
 
-✅ Display routes with distance and cost comparisons
+- 🛣️ Finding shortest & cheapest routes using **Dijkstra’s Algorithm**  
+- 👥 Managing passengers via **Max Heap + FIFO Queue**  
+- 🎟️ Prioritizing **Business Class** while ensuring fairness for **Economy**  
+- ⏳ Handling **special assistance** smoothly  
+- 🔄 Dynamically updating boarding lists during operations  
 
-✅ Handle special assistance passengers smoothly
+---
 
-✅ Update boarding list dynamically during operations
+## 🧩 Features
 
-⚙️ Functional Overview
+| 🛠 Feature                      | 💬 Description                                           |
+|--------------------------------|---------------------------------------------------------|
+| 🛣️ Route Finder                 | Dijkstra’s Algorithm on distance & cost separately      |
+| 🎟 Boarding Priority            | Max Heap prioritization (Business > Economy)            |
+| ⏳ FIFO Fairness                | Queue ensures fairness for same-priority passengers     |
+| 🦽 Special Assistance Handling  | Smooth boarding for priority passengers with needs      |
+| 📊 Comparison Display           | Routes with distance & cost shown in UI                 |
+| 🔄 Dynamic Updates              | Boarding list updates in real-time                      |
 
-🔹 Input
+---
 
-Airport details: names, codes, routes with distance, cost, duration, capacity
+## 📸 Demo Preview
 
-Passenger details: name, ID/passport number, class (Business/Economy)
+<p align="center">
+  <img src="https://media.giphy.com/media/26BRrSvJUa0crqw4E/giphy.gif" width="400"/>
+</p>
 
-Boarding info: check-in time, special assistance flag
+*Replace with your tool’s demo screenshot or GIF.*
 
-🔹 Process
+---
 
-Build graph with airports as nodes and routes as weighted edges
+## ⚙️ Functional Overview
 
-Run Dijkstra’s Algorithm on distance and cost separately
+### 🔹 Input
+- Airport details: names, codes, routes (distance, cost, duration, capacity)  
+- Passenger details: name, ID/passport, class (Business/Economy)  
+- Boarding info: check-in time, special assistance flag  
 
-Insert passengers into Max Heap (priority = class + check-in order)
+### 🔹 Process
+- Build graph → airports as nodes, routes as weighted edges  
+- Run Dijkstra’s Algorithm (distance & cost)  
+- Insert passengers into Max Heap (priority = class + check-in order)  
+- Apply FIFO Queue for tie-breaking  
+- Dynamically update boarding  
 
-Use FIFO Queue for same-priority passengers
+### 🔹 Output
+- 📍 Shortest path (total distance)  
+- 💵 Cheapest path (total cost)  
+- 📊 Route comparison (distance & cost)  
+- 🎟 Passenger boarding order (priority + fairness)  
+- 👥 Current passengers being served  
 
-Update boarding list dynamically during operation
+---
 
-🔹 Output
+## 🛠️ Data Structures & Algorithms
 
-Shortest path (with total distance)
+- **Graph + Dijkstra’s Algorithm** → Route optimization  
+- **Max Heap + Queue** → Boarding management  
+- **Date & Time Comparison** → Check-in + boarding updates  
 
-Cheapest path (with total cost)
+---
 
-Route results shown in UI for passenger comparison
+## 📁 Folder Structure
 
-Passenger boarding order (priority + arrival order)
+Route-Optimization-Boarding/
+│
+├── src/ # Java source files
+├── assets/ # GIFs, screenshots, diagrams
+└── README.md # Project documentation
 
-Current passengers being served
+---
 
-🛠️ Data Structures & Algorithms
+## 🔮 Future Enhancements
+- 🌍 Real-world flight API integration  
+- 📲 Mobile app for staff/passenger use  
+- 🤖 AI-based passenger flow prediction  
+- 🧳 Baggage handling integration  
 
-Graph + Dijkstra’s Algorithm → Fast route optimization by distance & cost
+---
 
-Max Heap + Queue → Efficient boarding order (priority + FIFO fairness)
+## 🙋‍♂️ Contributors
 
-Date & Time Comparison Algorithm → Manages check-in and boarding updates
+<table>
+  <tr>
+    <td align="center"><b>COHNDSE242F-049</b><br/>H A K R R LALANA</td>
+    <td align="center"><b>COHNDSE242F-064</b><br/>O J VINSURA</td>
+    <td align="center"><b>COHNDSE242F-065</b><br/>K P J RUKSHAN</td>
+    <td align="center"><b>COHNDSE242F-066</b><br/>T M T N KUMARI</td>
+  </tr>
+</table>
 
+---
 
+## 🏫 Project by
 
-🎓 Project Info
+<p align="center">
+  <img src="https://d1lmq142maiv1z.cloudfront.net/NIBM_City_University_Logo_2_213b4dd2f6.svg" width="150" alt="NIBM Logo"/>
+</p>
 
-Higher National Diploma in Software Engineering (HNDE)
-Course Module: PDSA Project Proposal – 24.2F/CO
+**National Institute of Business Management (NIBM)**  
+School of Computing · Colombo 07 · 2025  
 
-👨‍💻 Team Members:
-
-COHNDSE242F-049 - H A K R R LALANA
-
-COHNDSE242F-064 - O J VINSURA
-
-COHNDSE242F-065 - K P J RUKSHAN
-
-COHNDSE242F-066 - T M T N KUMARI
-
-Submitted to:
-National Institute of Business Management (NIBM) – School of Computing, Colombo 07
+---
